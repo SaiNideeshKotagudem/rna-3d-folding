@@ -2,6 +2,8 @@ import os
 import torch
 import numpy as np
 
+from model import RNAStructurePredictor
+
 def load_model(model_path, device):
     checkpoint = torch.load(model_path, map_location=device)
     model_config = checkpoint.get('model_config', {
@@ -64,9 +66,6 @@ def predict_for_test(test_loader, model_path, test_sequences_path, output_file, 
     
     print("Prediction completed!")
 
-# To run this cell in Colab, call:
-# predict_for_test(model_path="path/to/model.pt", test_sequences="test_seq.csv", output_file="predictions.npy", batch_size=32)
-#submission_script
 import os
 import numpy as np
 import pandas as pd
